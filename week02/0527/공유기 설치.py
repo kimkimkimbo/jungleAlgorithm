@@ -22,29 +22,35 @@ right 조건을 만족하는 최댓값
 import sys
 
 
+N, C = map(int, sys.stdin.readline().split())
+homes = sorted(int(sys.stdin.readline()) for _ in range(N))
 
-def Test(left, right):
-    
-    if left > right:
-        return right
+left = 1 #최소 거리
+right = homes[-1] - homes[0] #최대 거리
+
+
+
+result = 0
+
+while left <= right:
+    count = 1  # 공유기 설치 개수 (첫 집 설치했으니까 1부터 시작)
+    last_installed = homes[0]  # 첫 번째 집엔 무조건 설치!
     
     mid = (left + right) // 2
     
-    count = 0
+    for i in range(1, N):
+        #미디 이상 거리가 되면 설치
+        if homes[i] - last_installed >= mid:
+            count+= 1
+            last_installed = homes[i]
+    
+    if count >= C:
+        result = mid
+        left = mid + 1
+    else:
+        right = mid - 1
+        
+print(result)
     
     
     
-        
-        
-        
-    return
-
-
-
-N, C = map(int, sys.stdin.readline().split())
-homes = [int(sys.stdin.readline()) for _ in range(N)]
-homes.sort()
-left = 0
-right = max(homes)
-print(Test(left, right))
-

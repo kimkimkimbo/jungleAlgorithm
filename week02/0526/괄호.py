@@ -19,3 +19,4 @@ T = int(sys.stdin.readline())
 for _ in range(T):
     Tlist= sys.stdin.readline()
     print(Test(Tlist))
+    
