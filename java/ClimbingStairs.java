@@ -1,4 +1,4 @@
-public class Solution {
+public class ClimbingStairs {
     // climbStairs 함수: n번째 계단까지 도달하는 경우의 수를 계산
     public static int climbStairs(int n) {
         // 계단이 1개일 경우 경우의 수는 1가지
