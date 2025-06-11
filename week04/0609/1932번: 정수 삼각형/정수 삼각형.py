@@ -16,7 +16,6 @@ def triangle(nums, T):
                 dp[i][j] = dp[i-1][j-1] + nums[i][j]
             else:  # 중간 - 두 곳에서 올 수 있음, 최대값 선택
                 dp[i][j] = max(dp[i-1][j-1], dp[i-1][j]) + nums[i][j]
-    
         
     return max(dp[T-1])
 
